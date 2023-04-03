@@ -1,10 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 // import { contactsApi } from 'redux/contacts/api'
+import { baseURL } from 'redux/constants'
 
 export const authApi = createApi({
     reducerPath: 'authApi',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'https://connections-api.herokuapp.com',
+        baseUrl: baseURL,
         prepareHeaders: (headers, { getState }) => {
             const token = getState().auth.token
             // If we have a token set in state, let's assume that we should be passing it.
